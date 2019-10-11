@@ -18,13 +18,11 @@ namespace OneNote2PDF
             catch (Exception e)
             {
                 Log.Error(string.Format("Could not obtain reference to OneNote ({0})", e.Message));
-                oneApp = null;
                 return;
             }
 
-            string outputXML;
             // get till page level
-            oneApp.GetHierarchy(null, OneNote.HierarchyScope.hsPages, out outputXML);
+            oneApp.GetHierarchy(null, OneNote.HierarchyScope.hsPages, out string outputXML);
             ONNotebookListing onListing = new ONNotebookListing(outputXML);
 
             if (Config.Current.ShowHelp || Config.Current.Arguments.Count == 0)

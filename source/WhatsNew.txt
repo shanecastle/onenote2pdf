@@ -1,3 +1,7 @@
+11-10-2019
+	- [Shane Castle] Updated solution to .Net Framework 4.7.2 using Visual Studio 2019
+	- [Shane Castle] TBD: Migrate iTextSharp to iText 7
+
 11-12-2007
     - New command: ExcludeOnly [section name]
                    Specifies the only section that you want to export. 
