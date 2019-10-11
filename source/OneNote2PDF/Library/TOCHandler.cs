@@ -102,7 +102,7 @@ namespace OneNote2PDF.Library
 
             PdfAction action = PdfAction.GotoLocalPage(pdfWriter.CurrentPageNumber, new PdfDestination(PdfDestination.FITH, 806), pdfWriter);
             PdfOutline gotoPage = new PdfOutline(pdfWriter.RootOutline, action, TABLEOFCONTENTS);
-            pdfWriter.DirectContent.AddOutline(gotoPage);
+           //TODO: fix this pdfWriter.DirectContent.AddOutline(gotoPage, gotoPage.Title);
 
             Paragraph ToCTitle = new Paragraph(TABLEOFCONTENTS, new Font(BaseFont.CreateFont(BaseFont.TIMES_BOLD, BaseFont.WINANSI, true), 20));
             ToCTitle.SpacingAfter = 20;

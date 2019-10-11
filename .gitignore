@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vs
+/source/.vs/OneNote2PDF/v16
+/source/OneNote2PDF/bin/Debug
+/source/OneNote2PDF/obj/Debug
+/source/OneNote2PDF.UnitTest/obj
+/source/packages/iTextSharp.5.5.13.1
+/source/OneNote2PDF.UnitTest

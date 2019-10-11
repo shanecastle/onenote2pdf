@@ -83,9 +83,9 @@ namespace OneNote2PDF.Library
             }
             else
                 if (part is ONSection)
-                {
-                    PDFMergeAll(pathName, part as ONSection);
-                }
+            {
+                PDFMergeAll(pathName, part as ONSection);
+            }
         }
 
         #endregion
@@ -221,20 +221,16 @@ namespace OneNote2PDF.Library
             CloseDocument();
         }
         
-        private void PDFCombineSection(PdfOutline parent,
-                                        Data.ONSection section)
+        private void PDFCombineSection(PdfOutline parent, Data.ONSection section)
         {
             if (section == null)
                 throw new ArgumentNullException("section");
             if (section.Exclude)
                 return;
-
-            PdfOutline gotoPage = null;
-
             int currentPage = (pdfWriter.CurrentPageNumber == 1) ? pdfWriter.CurrentPageNumber : (pdfWriter.CurrentPageNumber + 1);
             PdfAction action = PdfAction.GotoLocalPage(currentPage, new PdfDestination(PdfDestination.FITH, 806), pdfWriter);
-            gotoPage = new PdfOutline(parent, action, section.Name);
-            pdfWriter.DirectContent.AddOutline(gotoPage);
+            PdfOutline gotoPage = new PdfOutline(parent, action, section.Name);
+           //TODO: fix this // pdfWriter.DirectContent.AddOutline(gotoPage, gotoPage.Title);
 
             foreach (Data.ONSection subSection in section.SubSections)
             {
@@ -297,7 +293,7 @@ namespace OneNote2PDF.Library
                     // set outline action at first page
                     PdfAction action = PdfAction.GotoLocalPage(pdfWriter.CurrentPageNumber, new PdfDestination(PdfDestination.FITH, 806), pdfWriter);
                     PdfOutline gotoPage = new PdfOutline(parent, action, page.Name);
-                    pdfWriter.DirectContent.AddOutline(gotoPage);
+                   //TODO: fix this // pdfWriter.DirectContent.AddOutline(gotoPage,gotoPage.Title);
                 }
             }
             pdfWriter.FreeReader(reader);
